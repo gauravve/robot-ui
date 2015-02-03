@@ -1,0 +1,1 @@
+python manage.py sqlclear robothub| python manage.py dbshell
