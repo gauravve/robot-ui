@@ -18,7 +18,7 @@ from robot.api import ExecutionResult
 from sqlite3 import IntegrityError
 
 
-from dbbot import Logger
+from robothubdb import Logger
 
 
 class RobotResultsParser(object):
@@ -102,7 +102,7 @@ class RobotResultsParser(object):
         self._verbose('`--> Parsing suite: %s' % suite.name)
         # try:
         suite_id = self._db.insert('suite', {
-            'suite_id': suite.id,
+            'suite_id': parent_suite_id,
             'xml_id': suite.id,
             'name': suite.name,
             'source': suite.source,

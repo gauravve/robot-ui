@@ -11,8 +11,8 @@
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
-from dbbot import RobotDatabase
-from dbbot import logger
+from robothubdb import RobotDatabase
+from robothubdb import logger
 
 class SQLLiteDatabaseWriter(RobotDatabase):
     application_name = ''
@@ -43,8 +43,8 @@ class SQLLiteDatabaseWriter(RobotDatabase):
 
     def _populate_project_and_application(self):
         self._verbose('- Adding values to projects and applications tables')
-        cursor = self._connection.execute("INSERT INTO robothub_project (id, project_name) VALUES ('ACP', 'Atlassian Competency')")
-        cursor = self._connection.execute("INSERT INTO robothub_application (id, application_name, project_id, git_link, framework_name, jira_link) VALUES ('JIRA', 'JIRA', 'ACP', '', '', '')")
+#        cursor = self._connection.execute("INSERT INTO robothub_project (id, project_name) VALUES ('ACP', 'Atlassian Competency')")
+#        cursor = self._connection.execute("INSERT INTO robothub_application (id, application_name, project_id, git_link, framework_name, jira_link) VALUES ('JIRA', 'JIRA', 'ACP', '', '', '')")
 
     def _create_table_test_run(self):
         self._create_table('test_run', {
@@ -84,7 +84,7 @@ class SQLLiteDatabaseWriter(RobotDatabase):
 
     def _create_table_suite(self):
         self._create_table('suite', {
-            'suite_id': 'INTEGER  NOT NULL REFERENCES suites',
+            'suite_id': 'INTEGER REFERENCES suites',
             'xml_id': 'TEXT NOT NULL',
             'name': 'TEXT NOT NULL',
             'source': 'TEXT',

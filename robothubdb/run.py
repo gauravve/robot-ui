@@ -16,7 +16,7 @@ import os
 import sys
 
 sys.path.append(os.path.abspath(__file__ + '/../..'))
-from dbbot.reader import SQLLiteDatabaseWriter, ReaderOptions, RobotResultsParser
+from robothubdb.reader import SQLLiteDatabaseWriter, ReaderOptions, RobotResultsParser
 from robot.errors import DataError
 
 
@@ -42,7 +42,7 @@ class DbBot(object):
                 self._parser.xml_to_db(xml_file)
                 self._db.commit()
         except DataError, message:
-            sys.stderr.write('dbbot: error: Invalid XML: %s\n\n' % message)
+            sys.stderr.write('robothubdb: error: Invalid XML: %s\n\n' % message)
             exit(1)
         finally:
             self._db.close()

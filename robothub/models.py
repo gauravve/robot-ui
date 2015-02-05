@@ -18,13 +18,13 @@ class Application(models.Model):
 
 
 class Suite(models.Model):
-    id = models.CharField(max_length=50, primary_key=True)
+    id = models.IntegerField(primary_key=True)
     suite_id = models.CharField(max_length=20,blank=True,null=True)
     source = models.CharField(max_length=500)
     xml_id = models.CharField(max_length=20)
     name = models.CharField(max_length=500)
     doc = models.CharField(max_length=2000)
-    application = models.ForeignKey(Application, related_name='suites', default=1)
+    application = models.ForeignKey(Application, related_name='suites', null=True)
 
 
 class Test(models.Model):
@@ -38,12 +38,13 @@ class Test(models.Model):
 
 class Keyword(models.Model):
     id = models.IntegerField(primary_key=True)
+    keyword_id = models.CharField(max_length=20,blank=True,null=True)
     name = models.CharField(max_length=500)
     doc = models.CharField(max_length=500)
     timeout = models.CharField(max_length=10)
     type = models.CharField(max_length=20)
-    test = models.ForeignKey(Test, related_name='keywords')
-    suite = models.ForeignKey(Suite, related_name='keywords')
+    test = models.ForeignKey(Test, related_name='keywords', null=True)
+    suite = models.ForeignKey(Suite, related_name='keywords', null=True)
 
 
 class Tag(models.Model):
