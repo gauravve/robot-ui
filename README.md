@@ -77,6 +77,3 @@ This feature is not implemented yet. Planning on using
 
 1. For Authorization : http://www.django-rest-framework.org/api-guide/authentication/
 2. For Authentication : http://www.django-rest-framework.org/api-guide/permissions/
-
-## Next big feature ##
-Use django to generate tables and generate initial configuration data which would make supporting other databases possible. 
