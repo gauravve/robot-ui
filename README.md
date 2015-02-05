@@ -32,7 +32,7 @@
 	
 3. Populate Database (sample file).
 
-		python dbbot/run.py -b robothub.db -v -a robothub dbbot/testdata/multiple/test_output.xml -k
+		python robothubdb/run.py -b robothub.db -v -a robothub robothubdb/testdata/multiple/test_output.xml -k
 	
 
 4. Install dependencies

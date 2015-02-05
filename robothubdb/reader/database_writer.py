@@ -43,8 +43,8 @@ class SQLLiteDatabaseWriter(RobotDatabase):
 
     def _populate_project_and_application(self):
         self._verbose('- Adding values to projects and applications tables')
-#        cursor = self._connection.execute("INSERT INTO robothub_project (id, project_name) VALUES ('ACP', 'Atlassian Competency')")
-#        cursor = self._connection.execute("INSERT INTO robothub_application (id, application_name, project_id, git_link, framework_name, jira_link) VALUES ('JIRA', 'JIRA', 'ACP', '', '', '')")
+        cursor = self._connection.execute("INSERT INTO robothub_project (id, project_name) VALUES ('ACP', 'Atlassian Competency')")
+        cursor = self._connection.execute("INSERT INTO robothub_application (id, application_name, project_id, git_link, framework_name, jira_link) VALUES ('JIRA', 'JIRA', 'ACP', '', '', '')")
 
     def _create_table_test_run(self):
         self._create_table('test_run', {
